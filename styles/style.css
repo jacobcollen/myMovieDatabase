@@ -3,9 +3,8 @@
     --body-gradient: linear-gradient(to top, #0d1825 0%, #21282d 100%);
     --primary-black: #000000;
     --primary-white: #ffffff;
-    --primary-grey: rgb(16, 16, 20);
-    --text-yellow: #F5C518;
-    --text-blue: #5595E7;
+    --primary-grey: rgba(10, 10, 18, 0.709);
+    --accent-yellow: #F5C518;
 }
 
 /* Base */
@@ -17,14 +16,13 @@
 
 body {
     background: linear-gradient(to top, #0d1825 0%, #21282d 100%);
-
     color: var(--primary-white);
     font-family: sans-serif;
 }
 
 /* Utils */
 .content-wrapper {
-    max-width: 1780px;
+    max-width: 1380px;
     width: 100%;
     margin: 0 auto;
 }
@@ -37,80 +35,98 @@ body {
 .header {
     background-color: var(--primary-grey);
     display: flex;
-    align-items: center;
     width: 100%;
-    padding: 1rem;
     z-index: 999;
 }
 
+/* Header content wrapper */
 .header__flex {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    padding: .5rem;
 }
 
+/* Logo */
 .header img {
-    padding: 0 .5rem;
     width: 100%;
-    max-width: 120px;
     min-width: 65px;
+    max-width: 95px;
+    display: flex;
     align-items: center;
     justify-content: center;
+    padding-left: .2rem;
 }
 
-.header input {
-    font-size: 1.7rem;
-    border: none;
-    outline: none;
-    padding: .5rem;
-    border-radius: .4rem;
-    width: 100%;
-    max-width: 45rem;
-}
-
+/* Search container */
 .search__container {
     position: relative;
-    display: flex;
-    align-items: center;
-    padding: 0 1.5rem;
-    flex: 1;
+    padding-left: .6rem;
+    max-width: 100%;
+    min-width: 38rem;
+
 }
 
-#searchInput:focus {
-    border: 3px solid var(--text-yellow);
+/* Search input */
+.search__input {
+    font-size: 1.3rem;
+    border: 2px solid var(--primary-grey);
+    outline: none;
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+    width: 100%;
 }
 
+/* Search input focus */
+.search__input:focus {
+    border: 2px solid var(--accent-yellow)
+}
+
+/* Search button */
 .search__btn {
-    position: absolute;
-    z-index: 1;
-    display: flex;
     background: transparent;
-    width: 4rem;
+    height: 43px;
     border: none;
     cursor: pointer;
-    left: 44rem;
+    width: 3rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    color: #7c7c7c;
 }
+
+.search__btn:hover {
+    transition: 200ms;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.search__btn:focus {
+    transition: 300ms;
+}
+
+
 
 /* Carousel */
 .carousel {
     display: flex;
     max-width: 100%;
     align-items: center;
-    margin-top: 1.5rem;
-    aspect-ratio: 1.85/1;
+    margin-top: 1rem;
+    aspect-ratio: 21/8;
     position: relative;
-    background-color: var(--primary-grey);
-    border-radius: .5rem;
-
+    background: var(--primary-grey);
+    border-radius: .8rem;
     border: .5px solid rgba(255, 255, 255, 0.091);
 }
 .carousel__slide {
     position: absolute;
     margin: auto;
-    width: 85%;
+    width: 80%;
     inset: 0;
     visibility: hidden;
-    aspect-ratio: 1.85/1;
+    aspect-ratio: 21/9;
     transition: 600ms visibility ease-in-out;
 }
 
@@ -122,7 +138,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 1rem;
+    border-radius: .5rem;
 }
 
 .carousel__btn {
@@ -135,17 +151,16 @@ body {
     list-style: none;
     background: rgba(255, 255, 255, 0);
     border-radius: .3rem;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(2px);
     border: 1px solid rgba(255, 255, 255, 0.28);
-    padding: 1rem 1.2rem;
+    padding: 1rem;
     color: var(--primary-white);
 }
 
 .carousel__btn:hover {
     transition: 300ms;
-    color: var(--text-yellow);
+    backdrop-filter: blur(15px);
+    color: var(--accent-yellow)
 }
 
 .carousel__btn:focus {
@@ -153,68 +168,103 @@ body {
 }
 
 .carousel__btn.prev {
-    left: 2rem;
+    left: 3rem;
 }
 
 .carousel__btn.next {
-    right: 2rem;
+    right: 3rem;
 }
 
 /* movie grid */
-
 .popular__title {
-    padding: 3rem 0 2rem;
-    font-size: 3rem;
+    padding: 3rem 2.5rem 2rem;
+    font-size: 2.5rem;
 }
+
 
 
 
 
 
 /* Media Queries */
-@media screen and (max-width: 1380px) {
-    .content-wrapper {
-        width: 100%;
-    }
-    .carousel__btn.prev {
-        left: 1rem;
-    }
-    .carousel__btn.next {
-        right: 1rem;
-    }
-}
-
 @media screen and (max-width: 1100px) {
     .content-wrapper {
+    }
+
+    .carousel__btn {
+        padding: .8rem;
+        font-size: 3rem;
+    }
+
+    .carousel__btn.prev {
+        left: .5;
+    }
+
+    .carousel__btn.next {
+        right: .5;
+    }
+
+    .popular__title {
+        padding: 2.5rem 2.5rem 1rem;
+        font-size: 2rem;
     }
 }
 
 @media screen and (max-width: 750px) {
-    .content-wrapper {
-    }
-    .carousel {
-        flex-direction: row;
-        overflow-x: auto;
-        width: 100%
+    .header {
     }
 
-    .carousel__slide iframe {
-        max-width: none; /* Override max-width for smaller screens */
+    .header__flex {
+        flex-direction: column;
+        align-items: flex-start;
+        align-content: center;
+    }
+
+    .header img {
+        max-width: 70px;
+    }
+
+    .search__container {
+        padding: .5rem 0 0;
+        padding-left: 0;
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .search__input {
+        font-size: 1.1rem;
+    }
+
+    .search__btn {
+        top: 50%;
+        transform: translateY(-40%);
+    }
+
+/* Corousel */
+    .carousel {
+        aspect-ratio: 21/9;
     }
 
     .carousel__slide {
-        width: 100%; /* Make slides take full width on smaller screens */
-        flex: 0 0 auto;
+        width: 100%;
     }
 
     .carousel__btn {
-        padding: 0.5rem 0.7rem;
-        font-size: 3rem; /* Adjust font size for smaller screens */
+        padding: .5rem;
+        font-size: 2rem;
     }
+
     .carousel__btn.prev {
         left: 0;
     }
+
     .carousel__btn.next {
         right: 0;
     }
+
+    .popular__title {
+        padding: 2rem 1rem 1rem;
+        font-size: 1.3rem;
+    }
+
 }
