@@ -28,3 +28,34 @@ function setupCarousel() {
         });
     });
 }
+
+async function movieTraliers(url) {
+    // const trailers = document.querySelectorAll('[data-active]');
+
+    try {
+        const response = await fetch(url);
+        const data = response.jason();
+        console.log(fetch);
+
+        return data;
+    } catch(error) {
+        console.log(error);
+        return [];
+    }
+}
+
+// ('https://santosnr6.github.io/Data/movies.json')
+
+// document.addEventListener('DOMContentLoaded', async () => {
+//     let trailers = [];
+
+//     try {
+//         trailers = await loadTrailers();
+//     }   catch (e) {
+//         console.log('error!');
+//         console.log(e);
+//     }
+
+//     console.log(trailers)
+
+//     movieTraliers();
