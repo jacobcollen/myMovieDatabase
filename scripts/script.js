@@ -61,13 +61,12 @@ function setupCarousel() {
 }
 
 // Top 20 movie grid
-// Top 20 movie grid
 const moviesList = document.getElementById('moviesList');
 
 fetch('https://santosnr6.github.io/Data/movies.json')
   .then(response => response.json())
   .then(movies => {
-    const top20Movies = movies.slice(0, 20); // Select the top 20 movies
+    const top20Movies = movies.slice(0, 20);
 
     top20Movies.forEach(movie => {
       const movieItem = document.createElement('li');
