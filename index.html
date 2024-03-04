@@ -11,50 +11,46 @@
 
 <body>
 
-    <!-- Header -->
+    <!-- HEADER -->
     <header class="header">
         <div class="content-wrapper header__flex">
             <a href="index.html"><img src="./res/mmdb.png" class="header__logo" alt="logotype"></a>
             <form class="search__container">
+                <label for="searchInput" class="visually-hidden">Search movies</label>
+                <i class="fas fa-search fa-xs search__icon"></i>
                 <input class="search__input" id="searchInput" type="text" placeholder="Search movies">
-                <button class="search__btn" id="searchBtn" type="submit">
-                    <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-                </button>
+                <ul class="search__dropdown" id="searchDropdown" tabindex="-1" style="display: none;"></ul>
             </form>
         </div>
     </header>
 
-    <!-- Search Results d-none -->
-    <div class="d-none">
-        <section class="content-wrapper results">
-            <h2 class="results__title">Search Results</h2>
-            <ul class="results__list" id="resultsList">
-            </ul>
-        </section>
-    </div>
-
-    <!-- Trailer Section -->
+    <!-- TRAILER SECTION-->
     <div class="content-wrapper">
-        <section class="carousel" data-carousel>
-            <button class="carousel__btn prev" data-carousel-btn="prev"><i
-                    class="fa-solid fa-angle-left fa-xs"></i></button>
-            <button class="carousel__btn next" data-carousel-btn="next"><i
-                    class="fa-solid fa-angle-right fa-xs"></i></button>
+        <section class="carousel root__section">
+            <button class="carousel__btn prev" data-carousel-btn="prev" aria-label="Previous Slide">
+                <i class="fa-solid fa-angle-left btn__icon"></i>
+              </button>
+              <button class="carousel__btn next" data-carousel-btn="next" aria-label="Next Slide">
+                <i class="fa-solid fa-angle-right btn__icon"></i>
+              </button>
             <ul data-slides></ul>
         </section>
     </div>
 
-    <!-- Popular movies section -->
+    <!-- TOP 20 MOVIE-GRID -->
     <div class="content-wrapper">
-        <section class="movie-grid__container" id="popularCardContainer">
+        <section class="movie-grid__container">
             <div class="movie-grid__title">
                 <h2>TOP 20 MOVIES</h2>
             </div>
-            <ul id="moviesList"></ul>
+            <ul class="movie-grid__list" id="movieList"></ul>
         </section>
     </div>
 
-    <script src="./scripts/script.js"></script>
+    <!-- SCRIPTS -->
+    <script type="module" src="./scripts/movie.mjs"></script>
+    <script type="module" src="./scripts/search.mjs"></script>
+    <script type="module" src="./scripts/script.mjs"></script>
 
 </body>
 
